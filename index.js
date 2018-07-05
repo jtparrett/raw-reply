@@ -57,7 +57,7 @@ cron.schedule('30 13 * * 3,5', () => {
   })
 })
 
-cron.schedule('30 13 * * *', () => {
+cron.schedule('30 13 * * 1', () => {
   axios.post(hookUrl, {
     text: "We always need more questions! Use /ask to submit a new question."
   })
