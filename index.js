@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const axios = require('axios')
 const cron = require('node-cron')
 
-const hookUrl = 'https://hooks.slack.com/services/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'
+const hookUrl = 'https://hooks.slack.com/services/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'
 
 const app = express()
 app.use(bodyParser.urlencoded({extended: true}))
