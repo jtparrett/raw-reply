@@ -41,7 +41,7 @@ router.use('/answer', (req, res) => {
   res.end()
 })
 
-cron.schedule('30 13 * * *', () => {
+cron.schedule('30 13 * * 3,5', () => {
   Question.findOne().where('asked').equals(false).sort('-_id').then(question => {
     if(!question){
       axios.post(hookUrl, {
@@ -54,6 +54,12 @@ cron.schedule('30 13 * * *', () => {
       question.set({ asked: true })
       question.save()
     })
+  })
+})
+
+cron.schedule('30 13 * * *', () => {
+  axios.post(hookUrl, {
+    text: "We always need more questions! Use /ask to submit a new question."
   })
 })
 
