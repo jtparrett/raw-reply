@@ -13,7 +13,7 @@ app.use(bodyParser.json({type: 'application/json'}))
 
 const router = express.Router()
 
-const db = mongoose.createConnection('mongodb://127.0.0.1:27017/raw-reply')
+const db = mongoose.createConnection('mongodb+srv://rawnet:ZRigTLXDavfQnjx7@raw-reply-tok2j.mongodb.net/test?retryWrites=true')
 
 const questionsSchema = new mongoose.Schema({
   text: String,
