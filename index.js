@@ -25,7 +25,13 @@ const Question = db.model('Questions', questionsSchema)
 app.use('/api', router)
 
 router.use('/ask', (req, res) => {
-  const text = req.body.text
+  const {text} = req.body
+  if(!text){
+    res.write(`Invalid Question`)
+    res.end()
+    return false
+  }
+
   const q = new Question({text, asked: false})
   
   q.save(() => {
