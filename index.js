@@ -42,7 +42,7 @@ router.use('/answer', (req, res) => {
 })
 
 cron.schedule('30 13 * * 3,5', () => {
-  Question.findOne().where('asked').equals(false).sort('-_id').then(question => {
+  Question.findOne().where('asked').equals(false).sort('_id').then(question => {
     if(!question){
       axios.post(hookUrl, {
         text: "Dang, we're out of questions. Use /ask to submit a new question."
